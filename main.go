@@ -26,6 +26,6 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 
 func main() {
 	http.HandleFunc("/transcribe", enableCORS(transcribeHandler))
-	fmt.Println("🔊 Resono API running on http://localhost:8040")
+	fmt.Println("🔊 Resono API running on port 8040")
 	log.Fatal(http.ListenAndServe(":8040", nil))
 }
