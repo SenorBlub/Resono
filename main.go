@@ -4,7 +4,10 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
+
+var httpPort = os.Getenv("PORT")
 
 func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -26,6 +29,6 @@ func enableCORS(next http.HandlerFunc) http.HandlerFunc {
 
 func main() {
 	http.HandleFunc("/transcribe", enableCORS(transcribeHandler))
-	fmt.Println("🔊 Resono API running on port 8040")
-	log.Fatal(http.ListenAndServe(":8040", nil))
+	fmt.Println("🔊 Resono API running on port " + httpPort)
+	log.Fatal(http.ListenAndServe(":"+httpPort, nil))
 }
