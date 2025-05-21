@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: thomasverhappen
-  IMAGE_NAME: glint
+  IMAGE_NAME: resono
 
 jobs:
   build:
